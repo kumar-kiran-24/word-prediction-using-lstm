@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Word Prediction</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #66a6ff;
+            border-radius: 8px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #66a6ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #558de8;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Next Word Prediction</h2>
+        <form action="/predicted_data" method="POST">
+            <input type="text" name="text" placeholder="Enter a sentence..." required>
+            <br>
+            <input type="submit" value="Predict Next Word">
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            Next predicted word: <b>{{ prediction }}</b>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
